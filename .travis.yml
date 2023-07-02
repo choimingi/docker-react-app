@@ -1,0 +1,16 @@
+sudo: required
+
+language: generic
+
+services:
+ - docker
+
+before_install:
+  - echo "Start crating an image"
+  - docker build -t react-app-react -f Dockerfild.dev .
+
+script:
+  - docker run -e CI=true react-app-react npm run test -- -- coverage
+
+after_success:
+  - echo "Test success"
