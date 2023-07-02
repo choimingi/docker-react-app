@@ -3,11 +3,11 @@ sudo: required
 language: generic
 
 services:
- - docker
+  - docker
 
 before_install:
   - echo "Start crating an image"
-  - docker build -t react-app-react -f Dockerfild.dev .
+  - docker build -t react-app-react -f Dockerfile.dev .
 
 script:
   - docker run -e CI=true react-app-react npm run test -- -- coverage
