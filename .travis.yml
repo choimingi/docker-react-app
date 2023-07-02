@@ -7,10 +7,10 @@ services:
 
 before_install:
   - echo "Start crating an image"
-  - docker build -t react-app-react -f Dockerfile.dev .
+  - docker build -t mingi/docker-react-app -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true react-app-react npm run test -- -- coverage
+  - docker run -e CI=true mingi/docker-react-app npm run test -- -- coverage
 
 after_success:
   - echo "Test success"
